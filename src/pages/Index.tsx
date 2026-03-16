@@ -1,7 +1,7 @@
 import ProfileHeader from "@/components/ProfileHeader";
 import PhoneNumbers from "@/components/PhoneNumbers";
-import LinkButton from "@/components/LinkButton";
-import { Globe, Linkedin, Facebook, Instagram } from "lucide-react";
+import BusinessCard from "@/components/BusinessCard";
+import { SocialLink } from "@/components/BusinessCard";
 
 const phones = [
   { label: "Crevion.ads", number: "+91 8113908262" },
@@ -9,12 +9,43 @@ const phones = [
   { label: "Dapps Solutions", number: "+971 542545909" },
 ];
 
-const links = [
-  { title: "Crevion.ads", url: "https://www.crevionads.com", icon: <Globe className="w-4 h-4" /> },
-  { title: "Dapps Solutions", url: "https://www.dappssolutions.com", icon: <Globe className="w-4 h-4" /> },
-  { title: "Connect on LinkedIn", url: "https://www.linkedin.com/in/muhammed-sabith-mt-6a63a221a", icon: <Linkedin className="w-4 h-4" /> },
-  { title: "Follow on Facebook", url: "https://www.facebook.com/share/1Kh2mcCx1g/", icon: <Facebook className="w-4 h-4" /> },
-  { title: "Follow on Instagram", url: "https://www.instagram.com/saabith.mt", icon: <Instagram className="w-4 h-4" /> },
+const businesses: { name: string; socials: SocialLink[] }[] = [
+  {
+    name: "Muhammed Sabith MT",
+    socials: [
+      { type: "website", url: "https://sabith-portfolio.vercel.app" },
+      { type: "linkedin", url: "https://www.linkedin.com/in/muhammed-sabith-mt-6a63a221a?utm_source=share_via&utm_content=profile&utm_medium=member_ios" },
+      { type: "facebook", url: " https://www.facebook.com/share/1Kh2mcCx1g/?mibextid=wwXIfr" },
+      { type: "instagram", url: "https://www.instagram.com/saabith.mt?igsh=djZjcnp6aHR5MXFr&utm_source=qr" },
+    ],
+  },
+  {
+    name: "Crevion.ads LLP",
+    socials: [
+      { type: "website", url: "https://www.crevionads.com" },
+      { type: "linkedin", url: "https://www.linkedin.com/in/crevion-ads/" },
+      { type: "facebook", url: "https://www.facebook.com/profile.php?id=61583819313930" },
+      { type: "instagram", url: " https://www.instagram.com/crevion.ads/" },
+    ],
+  },
+  {
+    name: "Dapps Solutions LLC",
+    socials: [
+      { type: "website", url: "https://www.dappssolutions.com" },
+      { type: "linkedin", url: "https://www.linkedin.com/company/dapps-solution/" },
+      { type: "facebook", url: "https://www.facebook.com/profile.php?id=61582658906975" },
+      { type: "instagram", url: "https://www.instagram.com/dapps_solutions?igsh=MXVjYnQwNzV4eWdsZQ%3D%3D&utm_source=qr" },
+    ],
+  },
+  {
+    name: "Milemakers.in",
+    socials: [
+      { type: "website", url: "https://milemakers.in" },
+      { type: "linkedin", url: "https://www.linkedin.com/in/muhammed-sabith-mt-6a63a221a" },
+      { type: "facebook", url: "https://www.facebook.com/profile.php?id=61583289269836" },
+      { type: "instagram", url: "https://www.instagram.com/milemakers.in/" },
+    ],
+  },
 ];
 
 const Index = () => {
@@ -187,16 +218,15 @@ const Index = () => {
             {/* Top border glow */}
        
 
-            <div className="relative z-10 flex flex-col gap-1">
-              {links.map((link) => (
-                <LinkButton
-                  key={link.title}
-                  title={link.title}
-                  url={link.url}
-                  icon={link.icon}
-                />
-              ))}
-            </div>
+           <div className="relative z-10 flex flex-col gap-3">
+  {businesses.map((biz) => (
+    <BusinessCard
+      key={biz.name}
+      name={biz.name}
+      socials={biz.socials}
+    />
+  ))}
+</div>
           </div>
 
           <p className="text-[10px] text-white/60 mt-4">
