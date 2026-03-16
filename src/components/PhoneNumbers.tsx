@@ -1,6 +1,7 @@
 import { Phone,  } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
+
 interface PhoneEntry {
   label: string;
   number: string;
@@ -13,19 +14,20 @@ interface PhoneNumbersProps {
 const PhoneNumbers = ({ phones }: PhoneNumbersProps) => {
   return (
     <div className="w-full flex flex-col gap-3">
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground px-1">
+      <h3 className="text-xs text-white  font-semibold uppercase tracking-wider text-muted-foreground px-1">
         Contact Numbers
       </h3>
+      
       {phones.map((phone) => ( 
         <div
           key={phone.label}
-          className="flex items-center justify-between w-full px-5 py-2 bg-link border border-link-border rounded-2xl"
+          className="flex items-center  justify-between w-full px-5 py-2 bg-link border border-link-border rounded-2xl"
         >
           <div className="flex flex-col">
             <span className="text-xs text-muted-foreground">{phone.label}</span>
             <span className="text-sm font-medium text-foreground">{phone.number}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center  gap-2">
             <a
               href={`https://wa.me/${phone.number.replace(/[^0-9]/g, "")}`}
               target="_blank"
